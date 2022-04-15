@@ -23,6 +23,14 @@ function App() {
 		setSelectSort(e.target.value)
 	}
 
+	function handleHideClick() {
+		if(isHide) {
+			return
+		} else {
+			return <Hoglist hogs={hogs} isGreased={isGreased} selectSort={selectSort} isHide={isHide}/>
+		}
+	}
+
 	return (
 		<div className="App">
 			<Nav />
@@ -40,8 +48,7 @@ function App() {
 					})}
 				</select>
 			</label>
-
-			<Hoglist hogs={hogs} isGreased={isGreased} selectSort={selectSort} isHide={isHide}/>
+			{handleHideClick()}
 		</div>
 	);
 }

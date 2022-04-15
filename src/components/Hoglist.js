@@ -1,7 +1,7 @@
 import React from "react"
 import Tale from "./Tale"
 
-function Hoglist({ hogs, isGreased, selectSort, isHide }) {
+function Hoglist({ hogs, isGreased, selectSort }) {
 
   let hogArr = []
 
