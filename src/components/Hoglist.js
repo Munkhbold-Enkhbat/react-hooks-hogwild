@@ -1,9 +1,18 @@
 import React from "react"
 import Tale from "./Tale"
 
-function Hoglist({ hogs }) {
+function Hoglist({ hogs, isGreased }) {
+
+  let hogArr = []
+
+  if(isGreased) {
+    hogArr = hogs.filter(hog => hog.greased)
+  } else {
+    hogArr = [...hogs]
+  }
+
   return (
-    hogs.map(hog => {
+    hogArr.map(hog => {
       return (
         <div key={hog.name}>
           <Tale hog={hog}/>

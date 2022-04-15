@@ -3,7 +3,7 @@ import React from "react"
 function Details({ hog }) {
   return (
     <>
-      <p>
+      <p className="hoggyText">
         Specialty: {hog.specialty}, 
         weight: {hog.weight}, 
         greased: {hog.greased ? "Yes" : "No"}, 
