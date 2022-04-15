@@ -140,6 +140,16 @@ ul {
   clear: both;
 }
 
+.greased {
+  margin: 10px 20px;
+}
+
+.hide {
+  margin-right: 10px;
+}
+.sortSelection {
+  margin: 10px;
+}
 
 @keyframes App-logo-spin {
   from {

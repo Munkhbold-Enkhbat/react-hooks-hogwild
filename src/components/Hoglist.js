@@ -1,7 +1,7 @@
 import React from "react"
 import Tale from "./Tale"
 
-function Hoglist({ hogs, isGreased }) {
+function Hoglist({ hogs, isGreased, selectSort, isHide }) {
 
   let hogArr = []
 
@@ -10,6 +10,12 @@ function Hoglist({ hogs, isGreased }) {
   } else {
     hogArr = [...hogs]
   }
+
+  if(selectSort === "name") {
+    hogArr = hogArr.sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)
+  } else if(selectSort === 'weight') {
+    hogArr = hogArr.sort((a, b) => a.weight > b.weight ? 1 : -1)
+  } 
 
   return (
     hogArr.map(hog => {
