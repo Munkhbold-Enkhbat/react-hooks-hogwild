@@ -20,7 +20,7 @@ function Hoglist({ hogs, isGreased, selectSort }) {
   return (
     hogArr.map(hog => {
       return (
-        <div key={hog.name}>
+        <div key={hog.name} className="ui eight wide column">
           <Tale hog={hog}/>
         </div>      
       )

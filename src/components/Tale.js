@@ -23,7 +23,7 @@ function Tale({ hog }) {
 
   return(
     <div className="pigTile" onClick={handleClick}>
-      <h2 className="largeHeader">{hog.name}</h2>
+      <h3>{hog.name}</h3>
       <img src={hog.image} alt="A cute hog..."/>
       {renderDetails()}
     </div>

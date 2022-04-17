@@ -3,12 +3,12 @@ import React from "react"
 function Details({ hog }) {
   return (
     <>
-      <p className="hoggyText">
-        Specialty: {hog.specialty}, 
-        weight: {hog.weight}, 
-        greased: {hog.greased ? "Yes" : "No"}, 
-        highest medal achieved: {hog["highest medal achieved"]}
-      </p>
+      <ul className="normalText">
+        <li>Specialty: {hog.specialty}</li>
+        <li>weight: {hog.weight}</li>
+        <li>greased: {hog.greased ? "Yes" : "No"}</li>
+        <li className="achievementText">highest medal achieved: {hog["highest medal achieved"]}</li>
+      </ul>
     </> 
   )
 }

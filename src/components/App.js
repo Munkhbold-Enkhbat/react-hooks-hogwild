@@ -10,49 +10,39 @@ function App() {
 	const [isGreased, setIsGreased] = useState(false)
 	const [isHide, setIsHide] = useState(false)
 	const [selectSort, setSelectSort] = useState('all')
-	const [updateHogs, setUpdateHogs] = useState(hogs)
+	const [myHogs, setMyHogs] = useState(hogs)
 	const sortCategories = ['all', 'name', 'weight']
-
-	function handleGreasedBtnClick() {
-		setIsGreased(!isGreased)
-	}
-
-	function handleHide() {
-		setIsHide(!isHide)
-	}
-
-	function handleSort(e) {
-		setSelectSort(e.target.value)
-	}
 
 	function handleHideClick() {
 		if(isHide) {
 			return
 		} else {
-			return <Hoglist hogs={hogs} isGreased={isGreased} selectSort={selectSort} isHide={isHide}/>
+			return <Hoglist hogs={hogs} isGreased={isGreased} selectSort={selectSort} isHide={isHide}/>					
 		}
 	}
 
 	return (
 		<div className="App">
 			<Nav />
-			<button className="greased" onClick={handleGreasedBtnClick}>
+			<button className="filterWrapper" onClick={() => setIsGreased(!isGreased)}>
 				{isGreased ? "All hogs" : "Greased"}
 			</button>				
-			<button className="hide" onClick={handleHide}>
+			<button className="hide" onClick={() => setIsHide(!isHide)}>
 				{isHide ? "Show Hogs" : "Hide Hogs"}
 			</button>
 			<label>
 				Sort Hogs
-				<select name="category"  className="sortSelection" onChange={handleSort}>
+				<select name="category"  className="sortSelection" onChange={(e) => setSelectSort(e.target.value)}>
 					{sortCategories.map((category, index) => {
 						return <option key={index}>{category}</option>
 					})}
 				</select>
 			</label>
 			{/* <br/> */}
-			<NewHogAdd updateHogs={updateHogs} setUpdateHogs={setUpdateHogs}/>
-			{handleHideClick()}
+			<NewHogAdd myHogs={myHogs} setMyHogs={setMyHogs}/>
+			<div className="ui grid container">
+				{handleHideClick()}
+			</div>			
 		</div>
 	);
 }
