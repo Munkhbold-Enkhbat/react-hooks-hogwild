@@ -1,31 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 
-function NewHogAdd(updateHogs, setUpdateHogs, newName, setNewName, newImage, setNewImage, newSpecialty, setNewSpecialty, 
-                  newWeight, setNewWeight, newGreased, setNewGreased, newHighestMedal, setNewHighestMedal) {
+function NewHogAdd(updateHogs, setUpdateHogs) {
   
-  function handleName(e) {
-    setNewName(e.target.value)
-  }
-
-  function handleImage(e) {
-    setNewImage(e.target.value)
-  }
-
-  function handleSpecialty(e) {
-    setNewSpecialty(e.target.value)
-  }
-
-  function handleWeight(e) {
-    setNewWeight(e.target.value)
-  }
-
-  function handleGreased(e) {
-    setNewGreased(e.target.value)
-  }
-
-  function handleHighestMedal(e) {
-    setNewHighestMedal(e.target.value)
-  }
+  const [newName, setNewName] = useState('')
+	const [newImage, setNewImage] = useState('')
+	const [newSpecialty, setNewSpecialty] = useState('')
+	const [newWeight, setNewWeight] = useState(0)
+	const [newGreased, setNewGreased] = useState(false)
+	const [newHighestMedal, setNewHighestMedal] = useState('') 
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -38,12 +20,12 @@ function NewHogAdd(updateHogs, setUpdateHogs, newName, setNewName, newImage, set
     <form className="new-hog-add-form" onSubmit={handleSubmit}>
       <label className="hoggyText"> Add a New Hog
         <div>
-          <input type="text" name="name" onChange={handleName} placeholder="name..."/>
-          <input type="text" name="image" onChange={handleImage} placeholder="link of image..."/>
-          <input type="text" name="specialty" onChange={handleSpecialty} placeholder="specialty..."/>
-          <input type="text" name="weight" onChange={handleWeight} placeholder="weight..."/>
-          <input type="text" name="greased" onChange={handleGreased} placeholder="greased..."/>
-          <input type="text" name="highestMedal" onChange={handleHighestMedal} placeholder="highest medal achieved..."/>
+          <input type="text" name="name" onChange={(e) => setNewName(e.target.value)} placeholder="name..."/>
+          <input type="text" name="image" onChange={(e) => setNewImage(e.target.value)} placeholder="link of image..."/>
+          <input type="text" name="specialty" onChange={(e) => setNewSpecialty(e.target.value)} placeholder="specialty..."/>
+          <input type="number" name="weight" onChange={(e) => setNewWeight(e.target.value)} placeholder="weight..."/>
+          <input type="text" name="greased" onChange={(e) => setNewGreased(e.target.value)} placeholder="greased..."/>
+          <input type="text" name="highestMedal" onChange={(e) => setNewHighestMedal(e.target.value)} placeholder="highest medal achieved..."/>
         </div>     
       </label>      
     </form>
