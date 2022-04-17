@@ -13,10 +13,8 @@ function NewHogAdd(myHogs, setMyHogs) {
     e.preventDefault()
     console.log("hogs:", myHogs)
     const newHog = {name: newName, image: newImage, specialty: newSpecialty, greased: newGreased, weight: newWeight, "heighest medal achieved": newHighestMedal}
-    let newHogList = myHogs.map(hog => ({...hog}))
-    console.log("newHog:", newHog)
-    console.log("newHogList:", newHogList)
-    newHogList.push(newHog)
+    console.log("New Hog:", newHog)
+    let newHogList = [...myHogs, newHog]   
     setMyHogs(newHogList)
   }
   
